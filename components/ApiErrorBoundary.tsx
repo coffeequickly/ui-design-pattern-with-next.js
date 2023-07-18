@@ -1,6 +1,6 @@
 // 에러 바운더리
 import { ErrorBoundary } from 'react-error-boundary';
-import React from 'react';
+import React, { Suspense } from 'react';
 
 export function ApiErrorBoundary({ children }: { children: React.ReactNode }) {
   return (
@@ -16,6 +16,7 @@ export function ApiErrorBoundary({ children }: { children: React.ReactNode }) {
       }}
     >
       {children}
+      <Suspense fallback={<h1>마, 기다려아</h1>}></Suspense>
     </ErrorBoundary>
   );
 }

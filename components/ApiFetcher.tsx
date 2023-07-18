@@ -2,13 +2,13 @@ import React, { ReactNode } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { AxiosResponse } from 'axios';
 
-export function ApiFetcher({
+export function ApiFetcher<T>({
   queryKey,
   queryFn,
   children,
 }: {
   queryKey: any;
-  queryFn: () => Promise<AxiosResponse<any>>;
+  queryFn: () => Promise<AxiosResponse<T>>;
   children: React.ReactNode;
 }) {
   const { isLoading, data, error } = useQuery(queryKey, queryFn);

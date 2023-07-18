@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import { ApiErrorBoundary } from '@/components/ApiErrorBoundary';
 import PostDetailComponent from '@/components/PostDetailComponent';
 import PostCommentsComponent from '@/components/PostCommentsComponent';
+import Link from 'next/link';
 
 function PostDetailPage({ id: post_id }: { id: string }) {
   const { data } = useQuery({
@@ -23,6 +24,7 @@ function PostDetailPage({ id: post_id }: { id: string }) {
         <title>{data?.title}</title>
       </Head>
       <PostDetailStyledComponent>
+        <Link href={`${parseInt(post_id) + 1}`}>다음</Link>
         <PostDetailComponent post_id={post_id} />
         <PostCommentsComponent post_id={post_id} />
         <div className={'serverside-rendered-data'}>

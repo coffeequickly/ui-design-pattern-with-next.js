@@ -1,7 +1,9 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 
-interface DataProviderProps<T> {
+type RequiredType = unknown;
+
+interface DataProviderProps<T extends RequiredType> {
   queryFn: () => Promise<T>;
   queryKey: (string | number)[];
   render: (data: T) => React.ReactElement;
