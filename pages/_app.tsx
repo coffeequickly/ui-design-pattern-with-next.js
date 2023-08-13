@@ -5,6 +5,7 @@ import { Hydrate, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Head from 'next/head';
 import 'reset-css';
+import styled from '@emotion/styled';
 
 export default function App({ Component, pageProps }: AppProps) {
   const queryClientRef = useRef<QueryClient>();
@@ -30,9 +31,16 @@ export default function App({ Component, pageProps }: AppProps) {
       <QueryClientProvider client={queryClientRef.current}>
         <ReactQueryDevtools initialIsOpen={false} />
         <Hydrate state={pageProps.dehydratedState}>
-          <Component {...pageProps} />
+          <Wrapper>
+            <Component {...pageProps} />
+          </Wrapper>
         </Hydrate>
       </QueryClientProvider>
     </>
   );
 }
+
+const Wrapper = styled.div`
+  width: 1200px;
+  margin: 0 auto;
+`;

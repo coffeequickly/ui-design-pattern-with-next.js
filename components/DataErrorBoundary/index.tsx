@@ -1,13 +1,12 @@
 // 에러 바운더리
 import { ErrorBoundary } from 'react-error-boundary';
-import React from 'react';
+import React, { Suspense } from 'react';
 
-export function ApiErrorBoundary({ children }: { children: React.ReactNode }) {
+export function DataErrorBoundary({ children }: { children: React.ReactNode }) {
   return (
     <ErrorBoundary
       FallbackComponent={ErrorMessage}
       onError={(error, componentStack) => {
-        console.log('내부');
         // TODO: 컨텍스트 더해서 센트리 등 로그 수집 도구로 전송 처리.
         // Sentry.withScope(scope => {
         //   scope.setExtras({ componentStack });
