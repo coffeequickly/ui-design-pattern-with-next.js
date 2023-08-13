@@ -26,5 +26,5 @@
 ## TODO
 - [x] React Query 전역/지역 설정 추가
 - [x] ServerSide Rendering에 필요한 데이터 추가/ 처리
-- [ ] 데이터 핸들링 처리가 위임된 컴포넌트 예제 추가(with Error Boundary)
+- [X] 데이터 핸들링 처리가 위임된 컴포넌트 예제 추가(with Error Boundary)
 - [ ] 데이터 Fetch 실패 시 재시도 로직 추가
